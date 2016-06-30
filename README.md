@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/pyro/badge/?style=flat)](https://readthedocs.org/projects/pyro)
+
 # Pyro
 
 ## Overview
