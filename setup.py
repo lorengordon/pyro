@@ -18,16 +18,12 @@ try:
         pypandoc.convert('CHANGELOG.md', 'rst')
     ])
     long_description = long_description.replace("\r","")
-except (ImportError, OSError):
+except (ImportError,OSError):
     # pandoc is not installed, fallback to using raw contents
     print("Pandoc not found. Long_description conversion failure.")
     import io
     with io.open('README.md', encoding="utf-8") as f:
         long_description = f.read()
-
-setup_requires = [
-    'pypandoc',
-]
 
 setup(
     name='pyro',
@@ -72,7 +68,6 @@ setup(
     install_requires=[
         'click',
     ],
-    setup_requires=setup_requires,
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],
