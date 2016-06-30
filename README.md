@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/pyro/badge/?style=flat)](https://readthedocs.org/projects/pyro)
+[![Travis-CI Build Status](https://travis-ci.org/lorengordon/pyro.svg?branch=master)](https://travis-ci.org/lorengordon/pyro)
 
 # Pyro
 
