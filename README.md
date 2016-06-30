@@ -29,7 +29,7 @@ pip install pyro
 
 ## Development
 
-To run the all tests run::
+To run the all tests run:
 
 ```bash
 tox
