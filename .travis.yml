@@ -20,11 +20,13 @@ before_install:
   - uname -a
   - lsb_release -a
 install:
+  - pip install --upgrade setuptools
   - pip install tox pypandoc
   - virtualenv --version
   - easy_install --version
   - pip --version
   - tox --version
+  - python -c "import pypandoc ; print('pypandoc version = {0}'.format(pypandoc.__version__))"
 script:
   - tox -v
 after_failure:
@@ -39,5 +41,3 @@ notifications:
   email:
     on_success: never
     on_failure: always
-
-
