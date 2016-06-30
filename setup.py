@@ -17,7 +17,7 @@ try:
         pypandoc.convert('README.md', 'rst'),
         pypandoc.convert('CHANGELOG.md', 'rst')
     ])
-    long_description = long_description.replace('\r\n','\n')
+    long_description = long_description.replace('\r\n', '\n')
 except (ImportError):
     # pandoc is not installed, fallback to using raw contents
     print("Pandoc not found. Long_description conversion failure.")
@@ -40,7 +40,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     classifiers=[
-        # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        # complete classifier list:
+        # http://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
