@@ -15,12 +15,15 @@ env:
     - TOXENV=py34,codecov
     - TOXENV=py35,codecov
     - TOXENV=pypy,codecov
+addons:
+  apt:
+    packages:
+      - pandoc
 before_install:
   - python --version
   - uname -a
   - lsb_release -a
 install:
-  - pip install --upgrade setuptools
   - pip install tox pypandoc
   - virtualenv --version
   - easy_install --version
