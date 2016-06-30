@@ -13,10 +13,11 @@ from setuptools import setup
 
 try:
     import pypandoc
-    long_description = '\n'.join([
-        pypandoc.convert('README.md', 'rst'),
-        pypandoc.convert('CHANGELOG.md', 'rst')
-    ])
+    # long_description = '\n'.join([
+    #     pypandoc.convert('README.md', 'rst'),
+    #     pypandoc.convert('CHANGELOG.md', 'rst')
+    # ])
+    long_description = pypandoc.convert('README.md', 'rst')
     long_description = long_description.replace('\r\n', '\n')
 except (ImportError):
     # pandoc is not installed, fallback to using raw contents
