@@ -1,0 +1,10 @@
+site_name: Pyro
+repo_url: https://github.com/lorengordon/pyro
+theme: readthedocs
+markdown_extensions:
+    - toc:
+        permalink: True
+    - admonition
+    - nl2br
+    - codehilite
+    - sane_lists

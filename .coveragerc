@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/pyro
+   */site-packages/pyro
+
+[run]
+branch = True
+source =
+    pyro
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
