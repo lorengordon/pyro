@@ -17,8 +17,8 @@ try:
         pypandoc.convert('README.md', 'rst'),
         pypandoc.convert('CHANGELOG.md', 'rst')
     ])
-    long_description = long_description.replace("\r","")
-except (ImportError,OSError):
+    long_description = long_description.replace('\r\n','\n')
+except (ImportError):
     # pandoc is not installed, fallback to using raw contents
     print("Pandoc not found. Long_description conversion failure.")
     import io
