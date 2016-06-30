@@ -28,7 +28,7 @@ default_context:
     email:                     'projects@plus3it.com'
     full_name:                 'Maintainers of Pyro'
     github_username:           'lorengordon'
-    landscape:                 'yes'
+    landscape:                 'no'
     open_source_license:       'Apache Software License 2.0'
     project_name:              'Pyro'
     project_short_description: 'An example package. Generated with cookiecutter-pyro.'
