@@ -3,21 +3,34 @@
 from __future__ import absolute_import
 from __future__ import print_function
 
-from glob import glob
+import io
+import re
 
+from glob import glob
 from os.path import basename
+from os.path import dirname
+from os.path import join
 from os.path import splitext
 from setuptools import find_packages
 from setuptools import setup
 
+def read(*names, **kwargs):
+    return io.open(
+        join(dirname(__file__), *names),
+        encoding=kwargs.get('encoding', 'utf8')
+    ).read()
 
 try:
     import pypandoc
-    # long_description = '\n'.join([
-    #     pypandoc.convert('README.md', 'rst'),
-    #     pypandoc.convert('CHANGELOG.md', 'rst')
-    # ])
-    long_description = pypandoc.convert('README.md', 'rst')
+    # String Markdown image tags from README.md
+    long_description = '%s\n%s' % (
+        re.compile('^\[!\[.*$', re.M).sub('', read('README.md')),
+        re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.md'))
+    )
+    long_description = pypandoc.convert(
+        long_description.lstrip('\n'),
+        'rst',
+        format='md')
     long_description = long_description.replace('\r\n', '\n')
 except (ImportError):
     # pandoc is not installed, fallback to using raw contents
