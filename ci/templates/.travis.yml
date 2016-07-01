@@ -7,17 +7,20 @@ env:
     - SEGFAULT_SIGNALS=all
   matrix:
     - TOXENV=check
-    - TOXENV=docs
-{% for env in tox_environments %}{{ '' }}
+    - TOXENV=docs{% for env in tox_environments %}{{ '' }}
     - TOXENV={{ env }},codecov
 {% endfor %}
 
+addons:
+  apt:
+    packages:
+      - pandoc
 before_install:
   - python --version
   - uname -a
   - lsb_release -a
 install:
-  - pip install tox pypandoc
+  - pip install tox
   - virtualenv --version
   - easy_install --version
   - pip --version
