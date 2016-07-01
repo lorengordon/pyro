@@ -1,3 +1,4 @@
+[![License Status](https://img.shields.io/github/license/lorengordon/pyro.svg)](./LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/pyro/badge/?style=flat)](https://readthedocs.org/projects/pyro)
 [![Travis-CI Build Status](https://travis-ci.org/lorengordon/pyro.svg?branch=master)](https://travis-ci.org/lorengordon/pyro)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lorengordon/pyro?branch=master&svg=true)](https://ci.appveyor.com/project/lorengordon/pyro)

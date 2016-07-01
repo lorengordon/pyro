@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 try:
     import pypandoc
-    # String Markdown image tags from README.md
+    # Strip Markdown image tags from README.md and convert to rst
     long_description = '%s\n%s' % (
         re.compile('^\[!\[.*$', re.M).sub('', read('README.md')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.md'))
