@@ -81,7 +81,7 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
-        'click',
+        'click>=6.0',
     ],
     extras_require={
         # eg:
