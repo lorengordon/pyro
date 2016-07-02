@@ -3,7 +3,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/lorengordon/pyro.svg?branch=master)](https://travis-ci.org/lorengordon/pyro)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lorengordon/pyro?branch=master&svg=true)](https://ci.appveyor.com/project/lorengordon/pyro)
 [![Requirements Status](https://requires.io/github/lorengordon/pyro/requirements.svg?branch=master)](https://requires.io/github/lorengordon/pyro/requirements/?branch=master)
-[![Coverage Status](https://codecov.io/github/lorengordon/pyro/coverage.svg?branch=master)](https://codecov.io/github/lorengordon/pyro)
+[![Codecov Status](https://codecov.io/gh/lorengordon/pyro/branch/master/graph/badge.svg)](https://codecov.io/gh/lorengordon/pyro)
 [![PyPI Package Latest Release](https://img.shields.io/pypi/v/pyro.svg?style=flat)](https://pypi.python.org/pypi/pyro)
 [![PyPI Package monthly downloads](https://img.shields.io/pypi/dm/pyro.svg?style=flat)](https://pypi.python.org/pypi/pyro)
 [![PyPI Wheel](https://img.shields.io/pypi/wheel/pyro.svg?style=flat)](https://pypi.python.org/pypi/pyro)
