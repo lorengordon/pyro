@@ -11,10 +11,6 @@ env:
     - TOXENV={{ env }},codecov
 {% endfor %}
 
-addons:
-  apt:
-    packages:
-      - pandoc
 before_install:
   - python --version
   - uname -a
