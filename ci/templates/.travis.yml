@@ -11,10 +11,6 @@ env:
     - TOXENV={{ env }},codecov
 {% endfor %}
 
-addons:
-  apt:
-    packages:
-      - pandoc
 before_install:
   - python --version
   - uname -a
@@ -41,6 +37,9 @@ notifications:
     on_failure: always
 # After you create the Github repo and add it to Travis, run the
 # ci/travis_pypi_setup.py script to finish PyPI deployment setup
+before_deploy:
+  - pip install pypandoc>=1.2.0
+  - python -c "import pypandoc; pypandoc.pandoc_download.download_pandoc()"
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
@@ -50,4 +49,4 @@ deploy:
   on:
     tags: true
     repo: lorengordon/pyro
-    condition: $TOXENV == py27
+    condition: '"$TOXENV" == *"py"*'
