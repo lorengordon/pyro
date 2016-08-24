@@ -8,6 +8,7 @@ from __future__ import print_function
 import io
 import os
 import re
+import sys
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(
@@ -28,8 +29,17 @@ def replace(file_path, pattern, repl, flags=0):
 
 
 def main(args):
+    skip = args.skip
     build = args.build
     file_paths = args.file_paths
+
+    if skip:
+        print(
+            'Not updating version for this build, `skip` set to "{0}"'
+            .format(skip)
+        )
+        sys.exit(0)
+
     # The version line must have the form
     # __version__ = 'ver'
     pattern = r"^(__version__ = ['\"])([^'\"]*)(['\"])"
@@ -45,6 +55,14 @@ def main(args):
 if '__main__' == __name__:
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '--skip',
+        default=False,
+        help=(
+            'If set to any non-false value, skips updating the version. '
+            '(default: {0})'.format(False)
+        )
+    )
     parser.add_argument(
         '--build',
         default=BUILD_NUMBER,
