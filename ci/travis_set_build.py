@@ -10,7 +10,7 @@ import os
 import re
 
 
-PROJECT_DIR = os.path.abspath(os.path.join(
+PROJECT_ROOT = os.path.abspath(os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
     os.pardir)
 )
@@ -34,7 +34,7 @@ def main(args):
     # __version__ = 'ver'
     pattern = r"^(__version__ = ['\"])([^'\"]*)(['\"])"
     repl = r"\g<1>\g<2>.dev{0}\g<3>".format(build)
-    version_file = os.path.join(PROJECT_DIR, *file_paths)
+    version_file = os.path.join(PROJECT_ROOT, *file_paths)
     print(
         'Updating version in version_file "{0}" with build "{1}"'
         .format(version_file, build)
@@ -48,14 +48,17 @@ if '__main__' == __name__:
     parser.add_argument(
         '--build',
         default=BUILD_NUMBER,
-        help='Build number to set (default: {0})'.format(BUILD_NUMBER)
+        help=(
+            'Build number to set. Will default to the env TRAVIS_BUILD_NUMBER '
+            'or an empty string. (default: {0})'.format(BUILD_NUMBER)
+        )
     )
     parser.add_argument(
         '--file-paths',
         default=VERSION_FILE_PATHS,
         help=(
             'Tuple of paths relative to the project root to a file containing '
-            'the version string (default: {0})'.format(VERSION_FILE_PATHS)
+            'the version string. (default: {0})'.format(VERSION_FILE_PATHS)
         )
     )
 
