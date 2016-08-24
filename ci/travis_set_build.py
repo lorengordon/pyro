@@ -33,7 +33,7 @@ def main(args):
     # The version line must have the form
     # __version__ = 'ver'
     pattern = r"^(__version__ = ['\"])([^'\"]*)(['\"])"
-    repl = r"\g<1>\g<2>-build.{0}\g<3>".format(build)
+    repl = r"\g<1>\g<2>.dev{0}\g<3>".format(build)
     version_file = os.path.join(PROJECT_DIR, *file_paths)
     print(
         'Updating version in version_file "{0}" with build "{1}"'
