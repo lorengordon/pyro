@@ -21,6 +21,21 @@ def read(*names, **kwargs):
         encoding=kwargs.get('encoding', 'utf8')
     ).read()
 
+
+def find_version(*file_paths):
+    # Read the version number from a source file.
+    # Why read it, and not import?
+    # see https://groups.google.com/d/topic/pypa-dev/0PkjVpcxTzQ/discussion
+    version_file = read(*file_paths, encoding='latin1')
+
+    # The version line must have the form
+    # __version__ = 'ver'
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 try:
     import pypandoc
     # Strip Markdown image tags from README.md and convert to rst
@@ -42,7 +57,7 @@ except (ImportError, OSError):
 
 setup(
     name='pyro',
-    version='0.1.0',
+    version=find_version('src', 'pyro', '__init__.py'),
     license="Apache Software License 2.0",
     description='An example package. Generated with cookiecutter-pyro.',
     long_description=long_description,
