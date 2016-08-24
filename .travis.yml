@@ -51,6 +51,7 @@ deploy:
     user: lorengordon
     password:
       secure: Cl2R5Bbmw45tgE7y7BhetwleuYkln3Y1NiIPtt/t8z5N7GFsdE+nMUhheFKPKjVufaaKgS/v32vXlk6045BFlDlgIbHxPVLjwcpd7T1ZrForYy/lCfrNoHJ5oPW4QLh8Z/aZ1tPz6HHGDAk9ccmWWhbuMWk8r7wQ6QachF/B26QvDIdiZj2ooTLZ95NPQLTVbDdj30eQKfqzizbB2KXu9KGB2qYOSATuA7qF1dz6Iv0b26m5TqTfGGEb8GIKVk29rZjojnPy4oQuWU8rPjUqYHq10JkW76gjnpniGAPcoGFjMuugr27kldBSR5TuPAvULs6RvgCFidNBIuRvcBluq2OK4vUh1i1SEdYqgQgNzEKBLHsE7yuJDC40WoKmgzitOSwwiRwhjlCctNBgct2KoooHdNSxwBnDA6YHMG63yoPFeeSEOHBzUwearniq7K0ensXHCPgZMLDdNbsc09Xpb4O7UbUdq793gBGgP7zEimgrNVya6fRiF4jDUGziSygKq+zvfUDk5oJXEPl1KtujbUsgsxq4qEaSWMtV83xypXzNMfEmxFtI90cShe2j5FsMr1u6fMOvFgK+cYgnDSBQD77r7nk3PedDH0OIA0NjwClNVxFk488sO8tKjgKBVU8w/dAu5c3/aEUh93u+bLCKotb/rr6nZCtiLy4Ws8fupBw=
+    skip_cleanup: true
     on:
       branch: master
       tags: false

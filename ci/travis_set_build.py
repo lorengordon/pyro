@@ -28,11 +28,17 @@ def replace(file_path, pattern, repl, flags=0):
 
 
 def main(args):
+    build = args.build
+    file_paths = args.file_paths
     # The version line must have the form
     # __version__ = 'ver'
     pattern = r"^(__version__ = ['\"])([^'\"]*)(['\"])"
-    repl = r"\g<1>\g<2>-build.{0}\g<3>".format(args.build)
-    version_file = os.path.join(PROJECT_DIR, *args.file_paths)
+    repl = r"\g<1>\g<2>-build.{0}\g<3>".format(build)
+    version_file = os.path.join(PROJECT_DIR, *file_paths)
+    print(
+        'Updating version in version_file "{0}" with build "{1}"'
+        .format(version_file, build)
+    )
     replace(version_file, pattern, repl, flags=re.M)
 
 
