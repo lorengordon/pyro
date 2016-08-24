@@ -39,7 +39,8 @@ notifications:
     on_success: never
     on_failure: always
 # After you create the Github repo and add it to Travis, run the
-# ci/travis_pypi_setup.py script to finish PyPI deployment setup
+# ci/travis_pypi_setup.py script and set the secure passwords to
+# finish PyPI deployment setup
 before_deploy:
   - pip install pypandoc>=1.2.0
   - python -c "import pypandoc; pypandoc.pandoc_download.download_pandoc()"
@@ -50,10 +51,18 @@ deploy:
     distributions: sdist bdist_wheel
     user: lorengordon
     password:
-      secure: Cl2R5Bbmw45tgE7y7BhetwleuYkln3Y1NiIPtt/t8z5N7GFsdE+nMUhheFKPKjVufaaKgS/v32vXlk6045BFlDlgIbHxPVLjwcpd7T1ZrForYy/lCfrNoHJ5oPW4QLh8Z/aZ1tPz6HHGDAk9ccmWWhbuMWk8r7wQ6QachF/B26QvDIdiZj2ooTLZ95NPQLTVbDdj30eQKfqzizbB2KXu9KGB2qYOSATuA7qF1dz6Iv0b26m5TqTfGGEb8GIKVk29rZjojnPy4oQuWU8rPjUqYHq10JkW76gjnpniGAPcoGFjMuugr27kldBSR5TuPAvULs6RvgCFidNBIuRvcBluq2OK4vUh1i1SEdYqgQgNzEKBLHsE7yuJDC40WoKmgzitOSwwiRwhjlCctNBgct2KoooHdNSxwBnDA6YHMG63yoPFeeSEOHBzUwearniq7K0ensXHCPgZMLDdNbsc09Xpb4O7UbUdq793gBGgP7zEimgrNVya6fRiF4jDUGziSygKq+zvfUDk5oJXEPl1KtujbUsgsxq4qEaSWMtV83xypXzNMfEmxFtI90cShe2j5FsMr1u6fMOvFgK+cYgnDSBQD77r7nk3PedDH0OIA0NjwClNVxFk488sO8tKjgKBVU8w/dAu5c3/aEUh93u+bLCKotb/rr6nZCtiLy4Ws8fupBw=
+      secure: bDbrVo/bAMMXC9qiqxIav2lknJP9pS9VawB2Me9jn41jYrLn4AmGR2SFG4rV+FbaUbbv79BeYM/4CPDF/mm41mocscX33LLEHjl2eK1NIlkiWvs22LcpBn8l2PbxEkIqojsUGoVdFQ/eu/tAOi3Fg1Ok04Pkh+vp0ZNwHnigZM565J4wiclZZfbKmt/74Oq0odeU6jWg5XoDJIr5qlquekObDmEfguHSrGR5D1UdVl1UTK70KF4UuVWKM2o1AbxuYOB4PUfhBe8G58Qau+qG6Qgyo9P71gqmVII04UeAmHa7vCVcjmIL3rAlZbVR0Vbxin8IxqoUZ1PdpqIcn/+6y3VIzIoaYMguodHuVIP8xPp9ubCnZDOlL6mDhmyhXz9elkqb5NzbWUSi25TxIORRzJC0JwGB7kfr2da/WxgiauEi2EVk/2zBg8nW9cCvN+EcJNs+O9o2Qi7DNjSklt1Hdy0z+X7oSsINTwvZI2Ds3xwfDET/ovQvfc58YeCacwr9DCK18+JjUXxFxIlEIySJxN0VjnSdcSJ7nbW1NA5KxcMB0E5kZGU5cAdqz3lLfuy5EYoho2vWpR8D7xFLaHtq47D3dMKLQxu20VMLF7BLiuOHJ0lWGj62xdKOrLaZiJRbkJwCALN5MBwOJg6ySz5laybTayMte4OKVCTfjIKl8Eo=
     skip_cleanup: true
     on:
-      branch: master
       tags: false
+      repo: lorengordon/pyro
+      condition: '"$TOXENV" == *"py27"*'
+  - provider: pypi
+    distributions: sdist bdist_wheel
+    user: lorengordon
+    password:
+      secure: xAO0a92KdPCklhddOQkyWXE0O7h0TBlfX2lOcriyne9ac0MNflcV19oKRCs/Z5RKgdjgORyn8sIwWZMaBnlyR6+unbeLXzWcVm0lBrdPLaclfn0uRBaK6rLDHtxACxNwC8alZoUTWz2EUuTskrv9qg3JgwUOJXD42C3JZG8iO34z5tSzJy6/5362wvE32iDZESg2hfPe3AJW0LNUZumGmbL/cCLpB0A6uoiBw4vqqHnZ3EvrDk+C9MfXfP8wGm1HITvo3sAtmbKmv55jQr0Og4hgKL9/+IXv66MQ28DQFXwuOaiQtYHCpoJvbUIyPuZZTFgYik/+Y41fArU7+oxgi9epNvdYrgQieJGoHgKmFKJ3/5vAFOkm9KB3D2vXyM1XO9nUILC6J8wfx/aYf0dOndHhLOYRfEoDFtalc2CxyWBD7KdfRUC4j7MkF6vh/fkeu90+QwPg5u1O0jdK97eVxHzHF3OvrAwysLKm748GiU6SWxoBS8R56GWk5ND7h2WAwn39OOMvOGn1M0pGvm4PFtmG6/MJ55ddR8UCQvBuAVQKJjgrJVIwfx5qBSu9Ot8YhHlNQ0B0vFk+Sau6/TNxGonb20Ue6ke2BEH67QM5DEk3ykZWee6pdXixiaCcq4ZeM2ChXXlajGw1D92gNJDzsKUI1MV6NuQmCNj4DArpDfo=
+    on:
+      tags: true
       repo: lorengordon/pyro
       condition: '"$TOXENV" == *"py27"*'

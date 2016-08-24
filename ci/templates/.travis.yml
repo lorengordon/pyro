@@ -40,13 +40,24 @@ notifications:
 before_deploy:
   - pip install pypandoc>=1.2.0
   - python -c "import pypandoc; pypandoc.pandoc_download.download_pandoc()"
+  - python $TRAVIS_BUILD_DIR/ci/travis_set_build.py --skip "$TRAVIS_TAG"
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: lorengordon
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: lorengordon/pyro
-    condition: '"$TOXENV" == *"py"*'
+  - provider: pypi
+    server: https://testpypi.python.org/pypi
+    distributions: sdist bdist_wheel
+    user: lorengordon
+    password:
+      secure: PLEASE_REPLACE_ME
+      on:
+        tags: false
+        repo: lorengordon/pyro
+        condition: '"$TOXENV" == *"py27"*'
+  - provider: pypi
+    distributions: sdist bdist_wheel
+    user: lorengordon
+    password:
+      secure: PLEASE_REPLACE_ME
+      on:
+        tags: true
+        repo: lorengordon/pyro
+        condition: '"$TOXENV" == *"py27"*'
