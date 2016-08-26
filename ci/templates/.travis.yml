@@ -51,6 +51,7 @@ deploy:
       secure: PLEASE_REPLACE_ME
     skip_cleanup: true
     on:
+      branch: master
       tags: false
       repo: lorengordon/pyro
       condition: '"$TOXENV" == *"py27"*'

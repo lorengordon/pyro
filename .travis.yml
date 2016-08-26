@@ -54,6 +54,7 @@ deploy:
       secure: e5aZZlf4qk+w+XD1CA7jJ6KdZSVQdU2o0KqiZy+xFQrZs9zHO2taQ4iPnhsIFr2J4/c+1e04+0DNeKeOXNOmMNA061YMwxddu3F6rr88G7CHBVG8jtUXqFJER03asyI0S78LLXrexq2H6jFZPNb5CslA9IlX8E12eAg2Q76/FKJc9KaUZ4jjePPsrcCCrgqMjOMM6VajVjh896yENUFm5duF0TGmTWAmR306o/lN8fJzHvbjlxXwoLjDI8Oah99lL2JtuYCOLQ9H1Yfoxayyj0s6pubwhTzHZybGtmImWSbHkuR+fm1bIzNZqyg0x7x7Zi0nGRGNu6T+C4j8EYdMKP6cPQlK7WMrtYvcitDDIr5mVEyryebR1obYkI/pIWH+mOrTDeD88QBIlYyTWJe6pW812kLZ2/bzvD/dcKdiWW6IMyXOXZE1ugV3JT66slFKjHk1a4Yf5X3Ez49PgQdqN7uq680LJM1vX1b9/bQTC3hHjRxxnDFCMsTqaJ2Mk7nlOHPPRh37esA1kDaPh3yIpQKZad8VJOQpQL8a5UZrDFBAyqYONhbZZ8p9y0e8S3vwOhKqUO9vlU07WD6Z3Xo1QvePYSJhD3p1i9yXiUX7yM2Vg8AslM6zYDSKhum/e3jUhcgPUYegwDVwSMoOqqOgvcjquF4SEgRbHhjflronJ2E=
     skip_cleanup: true
     on:
+      branch: master
       tags: false
       repo: lorengordon/pyro
       condition: '"$TOXENV" == *"py27"*'
